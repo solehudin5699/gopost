@@ -15,14 +15,14 @@ export default function FormPost() {
     setNewData({ ...newData, [e.target.name]: e.target.value });
   };
   const dispatch = useDispatch();
-  const { isError, isSuccess, isLoading } = useSelector((state) => state.post);
+  const { isError, isSuccess, isAddLoading } = useSelector(
+    (state) => state.post
+  );
   const handleSubmit = () => {
-    console.log({ ...newData, userId: 1 });
     dispatch(addPost({ ...newData, userId: 1 }));
   };
   useEffect(() => {
     if (isSuccess || isError) {
-      dispatch(resetPost());
       setFocus(false);
       setNewData({ title: '', body: '' });
     }
@@ -73,7 +73,7 @@ export default function FormPost() {
                 size="small"
                 style={{ width: '30%', height: '35px', marginLeft: '7px' }}
               >
-                {isLoading ? 'Loading...' : 'Post'}
+                {isAddLoading ? 'Loading...' : 'Post'}
               </Button>
               <Button
                 onClick={() => setFocus(false)}

@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 export default function DeleteConfirmation(props) {
   const { open, onClose, onDelete, data } = props;
-  const { isLoading } = useSelector((state) => state.post);
+  const { isDeleteLoading } = useSelector((state) => state.post);
   return (
     <div>
       <Dialog
@@ -42,7 +42,7 @@ export default function DeleteConfirmation(props) {
             style={{ width: '30%', height: '35px', marginLeft: '5px' }}
             size="small"
           >
-            {isLoading ? 'Loading...' : 'Yes'}
+            {isDeleteLoading ? 'Loading...' : 'Yes'}
           </Button>
         </DialogActions>
       </Dialog>

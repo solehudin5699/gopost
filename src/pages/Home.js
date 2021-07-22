@@ -25,16 +25,15 @@ export default function Home() {
   };
   const handleSubmitUpdatedData = (data) => {
     dispatch(editPost(data));
-    handleClose();
   };
   const handleDeleteData = (data) => {
     dispatch(deletePost(data.id));
-    handleClose();
   };
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     if (isSuccess || isError) {
+      handleClose();
       setTimeout(() => {
         dispatch(resetPost());
       }, 500);

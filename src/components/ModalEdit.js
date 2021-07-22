@@ -37,7 +37,7 @@ export default function ModalEdit(props) {
   const handleChange = (e) => {
     setUpdatedData({ ...updatedData, [e.target.name]: e.target.value });
   };
-  const { isLoading } = useSelector((state) => state.post);
+  const { isUpdateLoading } = useSelector((state) => state.post);
   useEffect(() => {
     if (open) {
       setUpdatedData(data);
@@ -95,7 +95,7 @@ export default function ModalEdit(props) {
                 size="small"
                 className={classes.btnUpdate}
               >
-                {isLoading ? 'Loading...' : 'Update'}
+                {isUpdateLoading ? 'Loading...' : 'Update'}
               </Button>
               <Button
                 onClick={props.onClose}

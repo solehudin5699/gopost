@@ -23,3 +23,9 @@ export const deletePost = (id) => {
     id,
   };
 };
+export const getPosts = (iteration) => {
+  return {
+    type: post.get,
+    iteration,
+  };
+};
