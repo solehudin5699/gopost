@@ -35,7 +35,6 @@ export default function Home() {
 
   useEffect(() => {
     if (isSuccess || isError) {
-      // handleClose();
       setTimeout(() => {
         dispatch(resetPost());
       }, 500);

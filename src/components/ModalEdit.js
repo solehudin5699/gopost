@@ -5,7 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -26,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
       width: '85vw',
     },
   },
+  btnUpdate: { width: '30%', height: '35px' },
+  btnCancel: { width: '30%', height: '35px', marginLeft: '5px' },
 }));
 
 export default function ModalEdit(props) {
@@ -91,7 +93,7 @@ export default function ModalEdit(props) {
                 variant="contained"
                 color="primary"
                 size="small"
-                style={{ width: '30%', height: '35px' }}
+                className={classes.btnEdit}
               >
                 {isLoading ? 'Loading...' : 'Update'}
               </Button>
@@ -100,7 +102,7 @@ export default function ModalEdit(props) {
                 variant="contained"
                 color="secondary"
                 size="small"
-                style={{ width: '30%', height: '35px', marginLeft: '5px' }}
+                className={classes.btnCancel}
               >
                 Cancel
               </Button>

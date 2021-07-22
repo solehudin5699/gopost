@@ -7,6 +7,18 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { useSelector } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  card: {
+    marginTop: '15px',
+    borderRadius: '10px',
+    overflow: 'hidden',
+  },
+  cardACtions: { marginBottom: '15px' },
+  btnEdit: { width: '30%', height: '35px', marginLeft: '7px' },
+  btnDelete: { width: '30%', height: '35px', marginLeft: '7px' },
+}));
 
 export default function PostItem({ onEdit, onDelete, idx }) {
   const [isLoading, setLoading] = useState(false);
@@ -39,15 +51,10 @@ export default function PostItem({ onEdit, onDelete, idx }) {
       setData(updatedData);
     }
   }, [isSuccess]);
+  const classes = useStyles();
   return (
     <>
-      <Card
-        style={{
-          marginTop: '15px',
-          borderRadius: '10px',
-          overflow: 'hidden',
-        }}
-      >
+      <Card className={classes.card}>
         {isLoading ? (
           <Skeleton variant="rect" width="100%" height={118} animation="wave" />
         ) : (
@@ -66,13 +73,13 @@ export default function PostItem({ onEdit, onDelete, idx }) {
                   {data.body || ''}
                 </Typography>
               </CardContent>
-              <CardActions style={{ marginBottom: '15px' }}>
+              <CardActions className={classes.cardActions}>
                 <Button
                   onClick={() => handleEdit(data, idx)}
                   variant="outlined"
                   color="primary"
                   size="small"
-                  style={{ width: '30%', height: '35px', marginLeft: '7px' }}
+                  className={classes.btnEdit}
                 >
                   Edit
                 </Button>
@@ -81,7 +88,7 @@ export default function PostItem({ onEdit, onDelete, idx }) {
                   variant="outlined"
                   color="secondary"
                   size="small"
-                  style={{ width: '30%', height: '35px', marginLeft: '7px' }}
+                  className={classes.btnDelete}
                 >
                   Delete
                 </Button>
