@@ -93,7 +93,7 @@ export default function ModalEdit(props) {
                 variant="contained"
                 color="primary"
                 size="small"
-                className={classes.btnEdit}
+                className={classes.btnUpdate}
               >
                 {isLoading ? 'Loading...' : 'Update'}
               </Button>
