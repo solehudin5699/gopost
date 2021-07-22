@@ -6,9 +6,16 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPost, resetPost } from '../redux/actions';
+import { addPost } from '../redux/actions';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(() => ({
+  container: { position: 'sticky', top: '70px', zIndex: 100 },
+  btn: { width: '30%', height: '35px', marginLeft: '7px' },
+}));
 
 export default function FormPost() {
+  const classes = useStyles();
   const [isFocus, setFocus] = useState(false);
   const [newData, setNewData] = useState({ title: '', body: '' });
   const handleChange = (e) => {
@@ -33,7 +40,7 @@ export default function FormPost() {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      style={{ position: 'sticky', top: '70px', zIndex: 100 }}
+      className={classes.container}
     >
       <Grid item xs={10} sm={6}>
         <Card>
@@ -71,7 +78,7 @@ export default function FormPost() {
                 variant="contained"
                 color="primary"
                 size="small"
-                style={{ width: '30%', height: '35px', marginLeft: '7px' }}
+                className={classes.btn}
               >
                 {isAddLoading ? 'Loading...' : 'Post'}
               </Button>
@@ -80,7 +87,7 @@ export default function FormPost() {
                 variant="contained"
                 color="secondary"
                 size="small"
-                style={{ width: '30%', height: '35px', marginLeft: '7px' }}
+                className={classes.btn}
               >
                 Cancel
               </Button>

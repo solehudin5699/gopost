@@ -49,8 +49,8 @@ export default function ModalEdit(props) {
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
-        open={props.open}
-        onClose={props.onClose}
+        open={open}
+        onClose={onClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -59,9 +59,7 @@ export default function ModalEdit(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">
-              Update {props.data?.title || ''}
-            </h2>
+            <h2 id="transition-modal-title">Update {data?.title || ''}</h2>
             <div>
               <TextField
                 fullWidth
@@ -88,7 +86,7 @@ export default function ModalEdit(props) {
             <div style={{ marginTop: '15px' }}>
               <Button
                 onClick={() => {
-                  props.onEdit({ ...data, ...updatedData });
+                  onEdit({ ...data, ...updatedData });
                 }}
                 variant="contained"
                 color="primary"

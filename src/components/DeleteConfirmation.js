@@ -6,9 +6,16 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { useSelector } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(() => ({
+  btnYes: { width: '30%', height: '35px', marginLeft: '5px' },
+  btnCancel: { width: '30%', height: '35px' },
+}));
 
 export default function DeleteConfirmation(props) {
   const { open, onClose, onDelete, data } = props;
+  const classes = useStyles();
   const { isDeleteLoading } = useSelector((state) => state.post);
   return (
     <div>
@@ -21,7 +28,8 @@ export default function DeleteConfirmation(props) {
         <DialogTitle id="alert-dialog-title">Delete Confirmation</DialogTitle>
         <DialogContent>
           <DialogContentText color="black" id="alert-dialog-description">
-            Are you sure you want to delete {data?.title || ''}?
+            Are you sure you want to delete <strong>{data?.title || ''}</strong>
+            ?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -29,7 +37,7 @@ export default function DeleteConfirmation(props) {
             onClick={onClose}
             color="primary"
             variant="contained"
-            style={{ width: '30%', height: '35px' }}
+            className={classes.btnCancel}
             size="small"
           >
             Cancel
@@ -39,7 +47,7 @@ export default function DeleteConfirmation(props) {
             color="secondary"
             autoFocus
             variant="contained"
-            style={{ width: '30%', height: '35px', marginLeft: '5px' }}
+            className={classes.btnYes}
             size="small"
           >
             {isDeleteLoading ? 'Loading...' : 'Yes'}

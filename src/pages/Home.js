@@ -49,7 +49,7 @@ export default function Home() {
         autoHideDuration: 2500,
       });
     }
-  }, [isSuccess, isError]);
+  }, [isSuccess, isError, dispatch, enqueueSnackbar, handleClose]);
   return (
     <>
       <PageBase>

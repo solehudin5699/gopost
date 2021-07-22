@@ -61,47 +61,6 @@ export default function PostItem({ onEdit, onDelete, idx, data }) {
             Delete
           </Button>
         </CardActions>
-        {/* {isLoading ? (
-          <Skeleton variant="rect" width="100%" height={118} animation="wave" />
-        ) : (
-          !isLoading &&
-          data.id && (
-            <>
-              <CardContent>
-                <Typography
-                  align="center"
-                  variant="h6"
-                  style={{ marginBottom: '15px' }}
-                >
-                  {data.title || ''}
-                </Typography>
-                <Typography align="justify" paragraph>
-                  {data.body || ''}
-                </Typography>
-              </CardContent>
-              <CardActions className={classes.cardActions}>
-                <Button
-                  onClick={() => handleEdit(data, idx)}
-                  variant="outlined"
-                  color="primary"
-                  size="small"
-                  className={classes.btnEdit}
-                >
-                  Edit
-                </Button>
-                <Button
-                  onClick={() => handleDelete(data, idx)}
-                  variant="outlined"
-                  color="secondary"
-                  size="small"
-                  className={classes.btnDelete}
-                >
-                  Delete
-                </Button>
-              </CardActions>
-            </>
-          )
-        )} */}
       </Card>
     </>
   );
